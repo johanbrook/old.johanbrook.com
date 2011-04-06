@@ -6,6 +6,25 @@ title: Johan Brook
 
 <section id="content">	
 	
+	{% for post in site.posts %}
+		<article>
+			<header>
+				<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+				<ul class="meta">
+					<li><time>Tue 28 March</time></li>
+					<li>via <a href="#">@marco</a></li>
+				</ul>
+			</header>
+
+			<div class="post-text">
+			<p>After a complete rewrite during the weekend, my barebones starter theme for WordPress is up at GitHub. It provides a basic HTML5 structure with <a href="#">partials</a>, lots of handy helper functions, and a couple of setup configurations. Check out the ReadMe and try it out. It evolved from my own habits when creating WordPress sites, so the GitHub repo also serves as a great location to store the files and access them from anywhere.</p>
+
+			<p>It’s only a skeleton, so no styling is included (check out my Sass framework for that). Frequently used Javascript libraries are included though, as well as a suggestion on a .htaccess file.</p>
+
+		</article>
+	
+	{% endfor %}
+	
 	<article>
 		<header>
 			<h1><a href="#">HTML and Magazines</a></h1>
