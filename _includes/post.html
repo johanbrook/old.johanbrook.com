@@ -1,16 +1,25 @@
 <article>
 	<header>
-		<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		<h1>
+			<a href="{{ post.link || post.url }}">{{ post.title }}</a>
+		</h1>
 		<ul class="meta">
-			<li><time datetime="{{ post.date | date: "%Y-%m-%dT%H:%M:%S"}}" pubdate>{{ post.date | date: "%a %d %B" }}</time></li>
+			<li><time datetime="{{ post.date | date_to_xmlschema }}" pubdate>{{ post.date | date: "%a %d %B" }}</time></li>
 			<li>via <a href="#">@marco</a></li>
 		</ul>
 	</header>
 
 	<div class="post-text">
 		
-		{{ post.content }}
+		{% if post.link %}
+			{{ post.content }}
+		{% else %}
+			{{ post.content | truncatewords: 50 }}
+		{% endif %}
 	
 	</div>
-
+	
+	{% unless post.link %}
+		<a class="permalink" href="{{ post.url }}">Continue reading</a>
+	{% endunless %}
 </article>

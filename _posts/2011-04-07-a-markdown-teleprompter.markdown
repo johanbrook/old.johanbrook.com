@@ -2,6 +2,7 @@
 title: A markdown teleprompter
 layout: post
 date: 2010-10-10
+link: http://brettterpstra.com/promptdown-markdown-teleprompter/
 ---
 
 
