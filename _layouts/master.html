@@ -1,10 +1,86 @@
 <!DOCTYPE html>
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>{{ page.title }}</title>
-	</head>
-	<body>
+
+<head>
+
+	<meta charset="utf-8" />
+	
+	<title>{{ page.title }}</title>
+	
+	<!-- The almighty, compressed stylesheet -->
+	<link rel="stylesheet" href="static/css/master.css" media="all" />
+	
+	<meta name="description" content="Here is the description of your project." />
+	<meta name="keywords" content="Some keywords">
+	
+	<meta name="author" content="Your Name Here" />
+	<meta name="Copyright" content="Copyright Your Name Here 2011. All Rights Reserved." />
+
+	<meta name="DC.title" content="Project Name" />
+	<meta name="DC.subject" content="What you're about." />
+	<meta name="DC.creator" content="Who made this site." />
+	<link type="text/plain" rel="author" href="static/humans.txt" />
+	
+	<link rel="icon" href="static/images/favicon.png"/>
+
+	<!-- iOS icons. You can add one size (preferably 114x114) and the system will scale it down for you. You can also provide
+		more sizes specific models below. -->
+	
+	<!-- One Icon Rules Them All (automatically scaled) -->
+	<link rel="apple-touch-icon-precomposed" href="static/images/handsomebastard.png"/>
+	
+	
+	<!-- The Viewport. Be sure to double-check on the actual device. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		 
+	<!--[if IE]>
+	<link rel="stylesheet" href="static/css/patches/win-ie-all.css" media="all" />
+	<![endif]-->
+
+	
+	<!--[if lt IE 9]>
+	<script src="static/js/html5.js"></script>
+	<![endif]-->
+	
+
+</head>
+
+<body id="www-johanbrook-com">
+
+	<header role="banner">
+		
+		<h1><a href="/">Johan Brook <em>Portfolio and blog</em></a></h1>
+		
+		<nav role="navigation">
+			<ul>
+				<li><a href="#">Work</a></li>
+				<li><a href="#">Archive</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<section role="main">
+		
 		{{ content }}
-	</body>
+			
+	</section>
+	
+	<footer role="contentinfo">
+		
+		<p><small>&copy; Copyright Your Name Here 2010. All Rights Reserved.</small></p>
+		
+	</footer>
+	
+	
+<!-- Google Analytics -->
+
+<!-- Javascripts -->
+<script src="static/js/jquery-1.5.1.min.js"></script>
+<script defer src="static/js/jquery.smoothscroll.min.js"></script>
+<script defer src="static/js/jquery.hashgrid.js"></script>
+<script defer src="static/js/dyluni.js"></script>
+</body>
 </html>

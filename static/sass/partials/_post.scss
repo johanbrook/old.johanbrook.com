@@ -1,0 +1,32 @@
+article{
+	margin-bottom: $lineheight;
+	
+	header{
+		h1 a{
+
+		}
+	}
+	
+	.meta{
+		font-size: 0.85em;
+		color: #777;
+		font-weight: bold;
+		
+		a{
+			color: #555;
+		}
+	}
+	
+	&:hover .meta{
+		a{
+			color: $accent;
+		}
+	}
+	
+	.post-text{
+		
+		p{
+			margin-bottom: $lineheight;
+		}
+	}
+}

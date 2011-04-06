@@ -1,0 +1,189 @@
+/*-  BASE STYLES
+
+This is the "config" file for the framework. It's seldom that you have to touch this
+more than once during the building of the site (most site specific stuff should go
+into "_main.scss").
+
+Core.scss includes variables, @font-faces rules, and other nifty stuff you
+just have to dump somewhere. You control most of the site's core functionality
+from here. As you can see, some minor reseting is done below, as well as 
+defining a mixin. Do not fear – this is stuff that doesn't go into "_reset.scss"
+because you still might want to alter things in here. 
+
+----------------------------------------------------------------------*/
+
+// Font stacks
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic);
+
+$serif: 		"Droid Serif", Georgia, "Times New Roman", serif;
+$sans: 			"Helvetica Neue", Helvetica, Arial, sans-serif;
+$monospaced: 	Inconsolata, Monaco, "Courier New", Courier, monospace;
+
+
+// Colors
+
+$accent: 		#FA2A00;		// Typically for links
+$comp: 			green;		// Some other cool color
+$highlight: 	#ACE7DF;		// For callouts, for example
+
+$border:		#aaa;
+
+
+// Local mixins
+
+@mixin blocklink{
+	display: block;
+	
+	&:hover{
+		@include transition(none);
+		text-decoration: none;
+		border-bottom: 0;
+		background-color: $accent;
+		color: #fff;
+	}
+}
+
+
+// Layout
+
+$page_width: 	980px;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
+							// in library/_utils.scss as well.
+
+$square: 	28px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
+							// ALWAYS stick this variable when adding margins, paddings, etc., and you'll see
+							// the content stick to the vertical grid (hold 'G' on your keyboard to view).
+
+$lineheight: 24px;
+
+// Set up the column width. 5 single columns make a 140px wide column, which makes a 6 column grid.
+
+$column:		$square*5; 
+
+							
+
+// Import CSS rules for Hashgrid (http://hashgrid.com)
+
+@import "library/_hashgrid";
+
+
+
+/*- Fluid images and objects ----------*/
+
+img {
+	max-width: 100%;
+	height: auto !important;
+}
+
+
+
+
+
+/*- GLOBAL HELPER CLASSES
+----------------------------------------------------------------------*/
+
+/* For separators */
+.sep{
+	color: #000;
+	font-size: 0.8em;
+	line-height: 28px;
+}
+
+/* Nicer ampersand */
+.amp{
+	font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: normal;
+}
+
+/* Quick floating */
+.alignleft{
+	float: left;
+}
+.alignright{
+	float: right;
+}
+
+
+
+
+/* =HEADINGS */
+/*-----------------------------------------*/
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: normal; 
+	margin-bottom: 0; 
+	text-rendering: optimizeLegibility;		/* Fixes kerning */
+	
+	a:hover{
+		text-decoration: none;
+	}
+}
+
+
+/*- ELEMENTS
+----------------------------------------------------------------------*/
+
+abbr[title] {
+	cursor: help;
+	
+	&:hover{
+		
+	}
+}
+
+
+hr{
+	border: 0;
+	padding: 0;
+	height: 1px;
+	background-color: #e2e2e2;
+	margin: $lineheight*2 auto ($lineheight*2) - 1px;		/* Make up for the border */ 
+}
+
+pre, code{
+	font-family: $monospaced;
+	line-height: $lineheight;
+}
+pre code{
+	font-size: 1.1em;
+	-webkit-font-smoothing: subpixel-antialiased;		/* Code doesn't look that good antialiased */
+}
+
+del{
+	color: #999; 
+	border: 0;
+}
+
+
+/**
+* 	Button style
+* 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
+*/
+@mixin button($basecolor: #fff){
+		@include border-radius(3px);
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		background-color: $basecolor;				/* Backup */
+		@include gradient($basecolor, darken($basecolor, 10%));
+		font: normal 1.3em/1 $sans;
+		text-align: center;
+		text-decoration: none;
+		padding: 0.3em 0.5em;
+		
+	&:hover{
+
+	}
+	
+	&:active{
+		@include transition(none);
+		top: auto; outline: none !important;
+		
+		@include box-shadow(inset rgba(0,0,0, 0.5) 0 3px 5px);
+	}
+}
+
+.button, button, input[type=submit]{
+	@include button;
+}

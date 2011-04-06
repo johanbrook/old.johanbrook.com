@@ -1,0 +1,133 @@
+/**
+*	MAIN STYLESHEET
+*
+*	This is the site specific file, in which almost ALL styles regarding the design should go.
+*	I encourage you to use SASS's @import features to divide you stylesheet in smaller parts
+*	(see the import of _header.scss). These partials should go in the folder ... partials :).
+*	Be sure to name them with an underscore in the beginning so SASS doesn't compile them
+*	separately.
+*/
+
+
+/*	=MAIN
+	------------------------------------------------------ */
+
+html{
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+}	
+	
+	
+	
+body{
+	/* 62.5% = 10px */
+	/* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
+	"CSS" – Cascading! */
+	
+	font: normal 87.5%/#{$lineheight} $sans;
+	color: #323232;
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 5%;
+}
+
+#content{
+	@include fluid(4, columns);
+	float: left;
+}
+
+header{
+	margin-bottom: $lineheight;
+}
+
+
+
+/*	=LINKS
+	------------------------------------------------------ */
+a{
+	-webkit-tap-highlight-color: #fff;
+	position: relative;
+	color: #FA2A00;
+	text-decoration: none;
+	font-weight: bold;
+	@include transition(color 0.15s ease-out);
+}
+
+a:active{
+	outline: none;
+	top: 1px;
+}
+
+a:hover, a:focus{
+	//color: darken($accent, 10%);
+	border-bottom: 1px solid;
+}
+
+
+
+/*	=HEADINGS
+	------------------------------------------------------ */	
+	
+h1{
+	font-size: 1.4em;
+	font-weight: 500;
+	
+	a{
+		font-weight: 500;
+	}
+	
+	&.huge{
+		color: #000;
+		font: normal 2.4em/#{$lineheight*2} $serif;
+	}
+}
+
+
+h2{
+	font-size: 1.1em;
+	color: #333;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+h3{
+	font-size: 2em;
+}
+
+
+
+/*	=HEADER
+	------------------------------------------------------ */
+@import "partials/header";
+
+
+/*	=FRONTPAGE
+	------------------------------------------------------ */
+@import "pages/frontpage";
+
+
+@import "partials/post";
+
+
+/*	=FORMS
+	------------------------------------------------------ */
+	
+@import "partials/forms";
+
+/*	=SIDEBAR
+	------------------------------------------------------ */
+
+@import "partials/sidebar";
+
+/*	=FOOTER
+	------------------------------------------------------ */
+@import "partials/footer";
+
+
+/*- optional vanity styles ----------*/
+
+::selection {background: $highlight; color: #000; text-shadow: none;}
+::-moz-selection {background: $highlight; color: #000; text-shadow: none;}
+
+img::selection {background: transparent;}
+img::-moz-selection {background: transparent;}

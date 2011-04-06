@@ -1,0 +1,737 @@
+/**
+*	Master.css
+*	
+*	Built by <yourname>
+*	Based on Dyluni (https://github.com/johanbrook/dyluni)
+*/
+/*-  CSS libraries (you shouldn't have to touch these ones)
+----------------------------------------------------------------------*/
+/*-  HANDY UTILS
+----------------------------------------------------------------------*/
+/**
+*	If you feel you want to add long term stuff, like a handy mixin, add it here. Mixins, helper 
+*	classes and variables in this file should for reuse only.
+*
+*/
+.block {
+  float: none !important;
+  width: 100% !important; }
+
+/*
+* Non-semantic helper classes
+*/
+/* Clearing stuff */
+.clear {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 0 0; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+.clearfix {
+  display: inline-block; }
+* html .clearfix {
+  height: 1%; }
+.clearfix {
+  display: block; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden {
+  display: none; }
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden; }
+
+/**
+*	The compulsory reset file. It's the HTML5 one (duh .. ) with some modifications.
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 . Modified by Johan 2011-01-03 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+  position: relative; }
+
+/* Enable absolute positioned elements inside these ones: */
+div, a, p, ul, li {
+  position: relative; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 28px 0 27px;
+  padding: 0; }
+
+label, a img {
+  cursor: pointer; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+small {
+  font-size: 85%; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #888;
+  cursor: help; }
+
+/* remember to define visible focus styles! 
+:focus {
+	outline: ?????;
+} */
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none; }
+
+del {
+  text-decoration: line-through; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline; }
+
+pre {
+  display: block;
+  white-space: pre;
+  /* CSS 2.0 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3.0 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla */
+  white-space: -hp-pre-wrap;
+  /* HP Printers */
+  word-wrap: break-word;
+  /* IE 5+ */
+  line-height: 1.5em; }
+
+sup {
+  vertical-align: super;
+  font-size: smaller; }
+
+sub {
+  vertical-align: sub;
+  font-size: smaller; }
+
+/*-  Main files
+----------------------------------------------------------------------*/
+/*-  BASE STYLES
+
+This is the "config" file for the framework. It's seldom that you have to touch this
+more than once during the building of the site (most site specific stuff should go
+into "_main.scss").
+
+Core.scss includes variables, @font-faces rules, and other nifty stuff you
+just have to dump somewhere. You control most of the site's core functionality
+from here. As you can see, some minor reseting is done below, as well as 
+defining a mixin. Do not fear – this is stuff that doesn't go into "_reset.scss"
+because you still might want to alter things in here. 
+
+----------------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic);
+/**
+*	Main grid container
+*/
+#grid {
+  /* Dimensions - same width as your grid with gutters (980px) */
+  width: 1008px;
+  /* Grid (left-aligned)
+  position: absolute;
+  top: 0;
+  left: 0;
+  */
+  /* Grid (centered) */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -504px;
+  z-index: 999; }
+
+/**
+ * Vertical grid lines
+ *
+ * Set the column width taking the borders into consideration,
+ * and use margins to set column gutters.
+ */
+#grid div.vert {
+  width: 139px;
+  border: solid darkturquoise;
+  border-width: 0 1px;
+  margin-left: 27px; }
+
+#grid div.vert.first-line {
+  margin-left: 13px; }
+
+/**
+ * Horizontal grid lines, defined by your base line height
+ *
+ * Remember, the CSS properties that define the box model:
+ * visible height = height + borders + margins + padding
+ */
+#grid div.horiz {
+  /* 28px line height */
+  height: 23px;
+  border-bottom: 1px dotted darkgray;
+  margin: 0;
+  padding: 0; }
+
+/**
+* Classes for multiple grids
+*
+* When using more than one grid, remember to set the numberOfGrids 
+* option in the hashgrid.js file.
+*/
+#grid.grid-1 div.vert {
+  /* Vertical grid line colour for grid 1 */
+  border-color: green;
+  background-color: rgba(0, 128, 0, 0.2); }
+
+#grid.grid-2 div.vert {
+  width: 111px;
+  margin: 0;
+  border-color: red;
+  border-width: 0 1px 0 0; }
+#grid.grid-2 div.horiz {
+  height: 215px;
+  border-bottom: 1px solid red; }
+
+#grid.grid-3 {
+  border-color: #aaa; }
+  #grid.grid-3 div.vert {
+    border-color: #bfebff;
+    border-style: dotted;
+    width: 27px;
+    background-color: rgba(191, 235, 255, 0.5); }
+
+/*- Fluid images and objects ----------*/
+img {
+  max-width: 100%;
+  height: auto !important; }
+
+/*- GLOBAL HELPER CLASSES
+----------------------------------------------------------------------*/
+/* For separators */
+.sep {
+  color: #000;
+  font-size: 0.8em;
+  line-height: 28px; }
+
+/* Nicer ampersand */
+.amp {
+  font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: normal; }
+
+/* Quick floating */
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
+/* =HEADINGS */
+/*-----------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin-bottom: 0;
+  text-rendering: optimizeLegibility;
+  /* Fixes kerning */ }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    text-decoration: none; }
+
+/*- ELEMENTS
+----------------------------------------------------------------------*/
+abbr[title] {
+  cursor: help; }
+
+hr {
+  border: 0;
+  padding: 0;
+  height: 1px;
+  background-color: #e2e2e2;
+  margin: 48px auto 47px;
+  /* Make up for the border */ }
+
+pre, code {
+  font-family: Inconsolata, Monaco, "Courier New", Courier, monospace;
+  line-height: 24px; }
+
+pre code {
+  font-size: 1.1em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  /* Code doesn't look that good antialiased */ }
+
+del {
+  color: #999;
+  border: 0; }
+
+/**
+* 	Button style
+* 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
+*/
+.button, button, input[type=submit] {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  background-color: white;
+  /* Backup */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e6e6e6));
+  background-image: -moz-linear-gradient(center top, white 0%, #e6e6e6 100%);
+  font: normal 1.3em/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.3em 0.5em; }
+  .button:active, button:active, input[type=submit]:active {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+    top: auto;
+    outline: none !important;
+    -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    -o-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px; }
+
+/**
+*	MAIN STYLESHEET
+*
+*	This is the site specific file, in which almost ALL styles regarding the design should go.
+*	I encourage you to use SASS's @import features to divide you stylesheet in smaller parts
+*	(see the import of _header.scss). These partials should go in the folder ... partials :).
+*	Be sure to name them with an underscore in the beginning so SASS doesn't compile them
+*	separately.
+*/
+/*	=MAIN
+	------------------------------------------------------ */
+html {
+  background: #fff;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  /* 62.5% = 10px */
+  /* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
+  "CSS" – Cascading! */
+  font: normal 87.5%/24px"Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #323232;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 5%; }
+
+#content {
+  width: 65.714%;
+  float: left; }
+
+header {
+  margin-bottom: 24px; }
+
+/*	=LINKS
+	------------------------------------------------------ */
+a {
+  -webkit-tap-highlight-color: #fff;
+  position: relative;
+  color: #FA2A00;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-transition: color 0.15s ease-out;
+  -moz-transition: color 0.15s ease-out;
+  -o-transition: color 0.15s ease-out;
+  -ms-transition: color 0.15s ease-out;
+  transition: color 0.15s ease-out; }
+
+a:active {
+  outline: none;
+  top: 1px; }
+
+a:hover, a:focus {
+  border-bottom: 1px solid; }
+
+/*	=HEADINGS
+	------------------------------------------------------ */
+h1 {
+  font-size: 1.4em;
+  font-weight: 500; }
+  h1 a {
+    font-weight: 500; }
+  h1.huge {
+    color: #000;
+    font: normal 2.4em/48px"Droid Serif", Georgia, "Times New Roman", serif; }
+
+h2 {
+  font-size: 1.1em;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+h3 {
+  font-size: 2em; }
+
+/*	=HEADER
+	------------------------------------------------------ */
+header[role="banner"] {
+  padding: 24px 0;
+  border-bottom: 1px dotted #aaaaaa;
+  margin-bottom: 27px; }
+  header[role="banner"] h1 {
+    font-size: 1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    header[role="banner"] h1 a {
+      display: block;
+      width: 10em;
+      height: 10em;
+      -webkit-border-radius: 7em;
+      -moz-border-radius: 7em;
+      -ms-border-radius: 7em;
+      border-radius: 7em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-top: 4em;
+      text-align: center;
+      background-color: #000;
+      color: #f5f5f5;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+      header[role="banner"] h1 a:hover {
+        text-decoration: none;
+        color: #fff;
+        border: 0; }
+    header[role="banner"] h1 em {
+      font: normal italic 0.8em/1 "Droid Serif", Georgia, "Times New Roman", serif;
+      color: #999;
+      text-transform: none;
+      letter-spacing: 0;
+      display: block;
+      -webkit-font-smoothing: subpixel-antialiased; }
+  header[role="banner"] #description {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    font-size: 0.85em;
+    line-height: 1.667;
+    width: 31.429%; }
+  header[role="banner"] nav[role="navigation"] {
+    position: absolute;
+    right: 0;
+    bottom: 48px;
+    width: 31.429%;
+    font-size: .9em; }
+    header[role="banner"] nav[role="navigation"] li {
+      display: inline-block;
+      min-width: 30%; }
+    header[role="banner"] nav[role="navigation"] a {
+      padding: 2px 4px;
+      font-weight: bold;
+      -webkit-transition: none;
+      -moz-transition: none;
+      -o-transition: none;
+      -ms-transition: none;
+      transition: none; }
+    header[role="banner"] nav[role="navigation"] a:hover {
+      background-color: #fa2a00;
+      color: #fff;
+      text-decoration: none; }
+
+/*	=FRONTPAGE
+	------------------------------------------------------ */
+/* Sample page. Create new SCSS files for each new view in your site/app. */
+section[role="main"] > header {
+  margin: 0 auto 72px;
+  width: 65.714%; }
+section[role="main"] #content article {
+  padding-left: 26.087%;
+  border-bottom: 1px dotted #aaaaaa; }
+  section[role="main"] #content article header {
+    margin: 0; }
+    section[role="main"] #content article header h1 a {
+      display: block;
+      border-bottom: 1px dotted #aaaaaa;
+      padding-bottom: 12px;
+      margin-bottom: 11px; }
+      section[role="main"] #content article header h1 a:hover {
+        border-bottom: 1px solid #fa2a00; }
+  section[role="main"] #content article .meta {
+    position: absolute;
+    top: 0;
+    left: -35.294%; }
+
+article {
+  margin-bottom: 24px; }
+  article .meta {
+    font-size: 0.85em;
+    color: #777;
+    font-weight: bold; }
+    article .meta a {
+      color: #555; }
+  article:hover .meta a {
+    color: #fa2a00; }
+  article .post-text p {
+    margin-bottom: 24px; }
+
+/*	=FORMS
+	------------------------------------------------------ */
+/* Search form */
+label {
+  cursor: pointer; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input.text,
+textarea {
+  -webkit-font-smoothing: antialiased; }
+
+textarea {
+  line-height: 24px;
+  resize: vertical;
+  -moz-resize: vertical; }
+
+/* Define error styles: */
+/*	=SIDEBAR
+	------------------------------------------------------ */
+/* Global styles for sidebars */
+.sidebar {
+  float: left;
+  width: 31.429%;
+  margin-left: 2.8%;
+  font-size: .85em; }
+  .sidebar a {
+    color: #333;
+    -webkit-transition: color 0.2s ease-out 0.2s;
+    -moz-transition: color 0.2s ease-out 0.2s;
+    -o-transition: color 0.2s ease-out 0.2s;
+    -ms-transition: color 0.2s ease-out 0.2s;
+    transition: color 0.2s ease-out 0.2s; }
+  .sidebar:hover a {
+    color: #fa2a00; }
+  .sidebar .node {
+    width: 45.455%;
+    min-height: 192px;
+    margin-bottom: 24px;
+    line-height: 1.667; }
+  .sidebar .list {
+    font-size: 1.1em; }
+    .sidebar .list li {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: .4em; }
+    .sidebar .list .listdetail {
+      color: #555;
+      display: block;
+      font-size: .85em;
+      font-weight: 500; }
+    .sidebar .list a {
+      text-decoration: none;
+      padding: 0 .3em;
+      font-weight: bold;
+      display: block; }
+      .sidebar .list a:hover {
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        -ms-transition: none;
+        transition: none;
+        text-decoration: none;
+        border-bottom: 0;
+        background-color: #fa2a00;
+        color: #fff; }
+      .sidebar .list a:hover .listdetail {
+        color: #fff; }
+
+#latestposts {
+  float: right; }
+
+/*	=FOOTER
+	------------------------------------------------------ */
+footer[role="contentinfo"] {
+  clear: both; }
+  footer[role="contentinfo"] p small {
+    font-size: 90%; }
+
+/*- optional vanity styles ----------*/
+::selection {
+  background: #ace7df;
+  color: #000;
+  text-shadow: none; }
+
+::-moz-selection {
+  background: #ace7df;
+  color: #000;
+  text-shadow: none; }
+
+img::selection {
+  background: transparent; }
+
+img::-moz-selection {
+  background: transparent; }
+
+/*-  STYLES FOR A RESPONSIVE DESIGN
+----------------------------------------------------------------------*/
+/* Feel free to add more media queries. These are the guys I usually use */
+/* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2) {}
+@media only screen and (max-width: 979px) {
+  body {
+    font-size: .9em; }
+
+  #content, .sidebar {
+    float: none !important;
+    width: 100% !important;
+    margin: 0; }
+
+  .sidebar {
+    margin-top: 24px; } }
+
+/* Target iPad sized tablets and smaller desktop screens. */
+@media only screen and (max-width: 979px) and (min-width: 768px) {}
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    font-size: 0.8em; }
+
+  header[role="banner"] nav[role="navigation"] {
+    position: static;
+    width: 100%;
+    margin-top: 24px;
+    text-align: center; }
+
+  .hide-mobile {
+    display: none; }
+
+  pre {
+    white-space: normal; } }
+
+/* Larger smartphones or other small web views. (iPhone in landscape view)*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+/* Only for small screen phones */
+@media only screen and (max-width: 479px) {
+  header[role="banner"] {
+    margin-bottom: 48px;
+    padding-bottom: 12px; }
+    header[role="banner"] h1 a {
+      padding: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
+      background-color: #fff;
+      color: #555;
+      font-size: 1.2em;
+      height: auto;
+      width: 100%;
+      text-align: left; }
+      header[role="banner"] h1 a:hover {
+        color: #333; }
+
+  section[role="main"] #content article {
+    padding: 0; }
+    section[role="main"] #content article .meta {
+      position: static; } }
+
+/*-  Print
+----------------------------------------------------------------------*/
+@media print {
+  * {
+    background: transparent !important;
+    color: #444 !important;
+    text-shadow: none; }
+
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline; }
+
+  a:after {
+    content: " (" attr(href) ")"; }
+
+  abbr:after {
+    content: " (" attr(title) ")"; }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  img {
+    page-break-inside: avoid; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; } }

@@ -1,0 +1,40 @@
+/* Sample page. Create new SCSS files for each new view in your site/app. */
+
+section[role="main"]{
+	& > header{
+		margin: 0 auto $lineheight*3;
+		@include fluid(4, columns);
+	}
+	
+	#content{
+		
+		article{
+			@include fluid(168, padding-left, 644);
+			border-bottom: 1px dotted $border;
+			
+			header{
+				margin: 0;
+				
+				h1 a{
+					display: block;
+					border-bottom: 1px dotted $border;
+					padding-bottom: $lineheight / 2;
+					margin-bottom: $lineheight / 2 - 1px;
+					
+					&:hover{
+						border-bottom: 1px solid $accent;
+					}
+				}
+				
+			}
+			
+			.meta{
+				position: absolute;
+				top: 0;
+				@include fluid(-168, left, 644 - 168);
+			}
+		}
+		
+	}
+	
+}

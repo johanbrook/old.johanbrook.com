@@ -1,0 +1,122 @@
+/*-  STYLES FOR A RESPONSIVE DESIGN
+----------------------------------------------------------------------*/
+
+/* Feel free to add more media queries. These are the guys I usually use */
+
+
+/* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2){
+	
+}
+
+@media only screen and (max-width: 979px){
+	
+	body{
+		font-size: .9em;
+
+	}
+	
+	#content, .sidebar{
+		@include block;
+		margin: 0;
+	}
+	
+	.sidebar{
+		margin-top: $lineheight;
+	}
+}
+
+
+/* Target iPad sized tablets and smaller desktop screens. */
+
+@media only screen and (max-width: 979px) and (min-width: 768px) {
+		
+	
+	
+	
+}
+
+
+
+
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
+	body{
+	//	@include column(2, false);
+		-webkit-text-size-adjust: 100%;
+//		background: yellow;
+		font-size: 0.8em;
+	}
+	
+	header[role="banner"]{
+		nav[role="navigation"]{
+			position: static;
+			width: 100%;
+			margin-top: $lineheight;
+			text-align: center;
+		}
+	}
+	
+	#content{
+		//padding: 0 4%;
+	}
+
+	
+	.hide-mobile{
+		display: none;
+	}
+	
+	pre{
+		white-space: normal;
+	}
+	
+}
+
+
+/* Larger smartphones or other small web views. (iPhone in landscape view)*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {	
+	
+}
+
+
+/* Only for small screen phones */
+
+@media only screen and (max-width: 479px) {	
+	header[role="banner"]{
+		margin-bottom: $lineheight*2;
+		padding-bottom: $lineheight / 2;
+		
+		h1 a{
+			padding: 0;
+			@include border-radius(0);
+			background-color: #fff;
+			color: #555;
+			font-size: 1.2em;
+			height: auto;
+			width: 100%;
+			text-align: left;
+			
+			&:hover{
+				color: #333;
+			}
+		}
+		
+		nav[role="navigation"]{
+			
+		}
+	}
+	
+	section[role="main"]{
+		#content{
+			article{
+				padding: 0;
+				
+				.meta{
+					position: static;
+				}
+			}
+		}
+	}
+}

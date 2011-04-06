@@ -1,0 +1,63 @@
+/* Global styles for sidebars */
+
+.sidebar{
+	float: left;
+	@include fluid(2, columns);
+	margin-left: 2.8%;
+	font-size: .85em;
+	
+	a{
+		color: #333;
+		@include transition(color 0.2s ease-out 0.2s);
+	}
+	
+	&:hover a{
+		color: $accent;
+	}
+	
+	.node{
+		@include fluid(1, columns, 308);
+		min-height: $lineheight*8;
+		margin-bottom: $lineheight;
+		line-height: 1.667;
+	}
+	
+	.list{
+		font-size: 1.1em;
+		
+		li{
+			border-bottom: 1px solid #ccc;
+			margin-bottom: .4em;
+		}
+		
+		.listdetail{
+			color: #555;
+			display: block;
+			font-size: .85em;
+			font-weight: 500;
+		}
+		
+		a{
+			text-decoration: none;
+			padding: 0 .3em;
+			font-weight: bold;
+			@include blocklink;
+			
+			&:hover{
+				.listdetail{
+					color: #fff;
+				}
+			}
+			
+			
+		}
+	}
+	
+}
+
+
+
+#latestposts{
+	float: right;
+
+}

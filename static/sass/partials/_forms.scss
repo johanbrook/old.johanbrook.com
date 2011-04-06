@@ -1,0 +1,44 @@
+/* Search form */
+
+input[type="search"]{
+	
+}
+
+
+
+label{
+	cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+
+input.text,
+textarea{
+	// Uncomment if you don't want Safari to apply native OS controls
+	//-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+	
+	&:focus{
+		
+	}
+	
+	&::-webkit-input-placeholder,
+	&::-moz-placeholder{
+		// Styles for the placeholder attributes
+	}
+}
+
+textarea{
+	line-height: $lineheight;
+	resize: vertical;
+	-moz-resize: vertical;
+}
+
+
+/* Define error styles: */
+
+
+
+
