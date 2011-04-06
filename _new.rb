@@ -21,7 +21,7 @@ title  = ARGV.join(' ')
 slug   = slugify(title)
 prefix = Time.new.strftime("%Y-%m-%d")
 file   = "#{prefix}-#{slug}.markdown"
-path   = File.join(File.dirname(__FILE__), "_posts/#{year}/#{filename}")
+path   = File.join(File.dirname(__FILE__), "_posts/#{file}")
 text   = <<-eos
 ---
 title: #{title}
