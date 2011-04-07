@@ -5,24 +5,24 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
  
   <title>Johan Brook</title>
-  <link href="http://jocap.github.com/"/>
-  <link type="application/atom+xml" rel="self" href="http://jocap.github.com/atom.xml"/>
+  <link href="http://johanbrook.github.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://johanbrook.github.com/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://jocap.github.com/</id>
+  <id>http://johanbrook.github.com/</id>
   <author>
-    <name>John Ankarström</name>
-    <email>john.ankarstrom@gmail.com</email>
+    <name>Johan Brook</name>
+    <email>johan@johanbrook.com</email>
   </author>
 
   {% for post in site.posts %}
   <entry>
-    <id>http://jocap.github.com{{ post.id }}</id>
-    <link type="text/html" rel="alternate" href="http://jocap.github.com{{ post.url }}"/>
+    <id>http://johanbrook.github.com{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://johanbrook.github.com{{ post.url }}"/>
     <title>{{ post.title }}</title>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <author>
-      <name>John Ankarström</name>
-      <uri>http://jocap.github.com/</uri>
+      <name>Johan Brook</name>
+      <uri>http://johanbrook.github.com/</uri>
     </author>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
