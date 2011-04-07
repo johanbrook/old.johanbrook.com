@@ -102,11 +102,9 @@
 				color: #333;
 			}
 		}
-		
-		nav[role="navigation"]{
-			
-		}
+	
 	}
+	
 	
 	section[role="main"]{
 		#content{
@@ -115,6 +113,11 @@
 				
 				.meta{
 					position: static;
+					
+					li{
+						display: inline-block;
+						margin-right: 10px;
+					}
 				}
 			}
 		}

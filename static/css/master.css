@@ -723,7 +723,10 @@ img::-moz-selection {
   section[role="main"] #content article {
     padding: 0; }
     section[role="main"] #content article .meta {
-      position: static; } }
+      position: static; }
+      section[role="main"] #content article .meta li {
+        display: inline-block;
+        margin-right: 10px; } }
 
 /*-  Print
 ----------------------------------------------------------------------*/
