@@ -4,11 +4,14 @@ require "date"
 site_url = "http://johanbrook.com"
 
 # TODO: Write task to compile Sass
+#
+# Heavily inspired by https://github.com/josegonzalez/josediazgonzalez.com
 
 
 
 desc "Build and deploy site"
-task :deploy => [:sitemap, :ping, :push] do 
+task :deploy => [:push] do 
+  puts "* Deployed site"
 end
 
 
@@ -24,22 +27,33 @@ task :push do
   puts `git push origin master`
 end
 
+#
+# Creates new post
+# Formats the file name after the current date (unless an optional date is provided), puts
+# a post template in the file, and puts the file in the _posts directory.
+#
+# Usage: rake post title="The title" date="2011-10-10"
+
 desc 'Create new post'
 task :post do
   title, slug, date = get_args
   file = File.join(File.dirname(__FILE__), '_posts', slug + '.markdown')
   create_blank_post(file, title, date)
-  puts "* Created #{title}"
-  open_in_editor(file)
+  puts "*"
+  puts "* Created '#{title}'"
+  puts "* (#{date})"
+  puts "*"
+  system ("mate #{file}")
 end
 
 
 
-desc "remove files in output directory"
+desc "Remove files in output directory"
 task :clean do
   puts '* Removing Output'
   puts `rm -rf _site/*`
 end
+
 
 desc 'Notify Google of the new sitemap'
 task :sitemap do
@@ -55,23 +69,18 @@ end
 
 
 
+# Helper method for returning arguments from :post
+
 def get_args
-  unless title = ENV["title"]
-    puts "Please provide a post title"
-    puts "USAGE: rake post title='the post title' [date='2010-10-10']"
-    exit(1)
-  end
-  date = ENV['date']
-  unless date
-    date = Time.now.localtime.strftime("%Y-%m-%d")
-  end
+  title = ENV['title'] || "New post"
+  date = ENV['date'] || Time.now.localtime.strftime("%Y-%m-%d")
   
   return [title, "#{date}-#{title.downcase.gsub(/[^\w]+/, '-')}", date]
 end
 
 
 
-# Helper method for :draft and :post, that will create a file at a given
+# Helper method for and :post, that will create a file at a given
 # location and fill it with an empty post.
 def create_blank_post(path, title, date)
   # Create the directories to this path if needed
@@ -89,11 +98,6 @@ def create_blank_post(path, title, date)
 
     EOS
   end
-end
-
-# Helper method to open a file in the default text editor.
-def open_in_editor(file)
-  system ("mate #{file}")
 end
 
 

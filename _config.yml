@@ -1,4 +1,3 @@
-base_url: http://johanbrook.com
 auto: true
 markdown: rdiscount
 rdiscount:
