@@ -532,7 +532,8 @@ section[role="main"] #content article {
     left: -35.294%; }
 
 article {
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  overflow: hidden; }
   article .meta {
     font-size: 0.85em;
     color: #777;
@@ -543,6 +544,26 @@ article {
     color: #fa2a00; }
   article .post-text p {
     margin-bottom: 24px; }
+  article a.permalink {
+    display: block;
+    width: 140px;
+    text-align: center;
+    font-size: 0.9em;
+    float: right;
+    color: #333;
+    font-weight: 500; }
+    article a.permalink:hover {
+      -webkit-transition: none;
+      -moz-transition: none;
+      -o-transition: none;
+      -ms-transition: none;
+      transition: none;
+      text-decoration: none;
+      border-bottom: 0;
+      background-color: #fa2a00;
+      color: #fff; }
+    article a.permalink::after {
+      content: " →"; }
 
 /*	=FORMS
 	------------------------------------------------------ */

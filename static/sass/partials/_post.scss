@@ -1,5 +1,6 @@
 article{
 	margin-bottom: $lineheight;
+	overflow: hidden;
 	
 	header{
 		h1 a{
@@ -27,6 +28,20 @@ article{
 		
 		p{
 			margin-bottom: $lineheight;
+		}
+	}
+	
+	a.permalink{
+		@include blocklink;
+		width: $column;
+		text-align: center;
+		font-size: 0.9em;
+		float: right;
+		color: #333;
+		font-weight: 500;
+		
+		&::after{
+			content: " →";
 		}
 	}
 }
