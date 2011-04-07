@@ -5,8 +5,8 @@
 		</h1>
 		<ul class="meta">
 			<li><time datetime="{{ post.date | date_to_xmlschema }}" pubdate>{{ post.date | date: "%a %d %B" }}</time></li>
-			{% if post.sourcelink %}<li>via <a href="{{ post.sourcelink }}">{{ post.source }}</a></li>{% endif %}
 			<li><a href="{{ post.url }}" title="{{ post.url }}">Permalink</a></li>
+			{% if post.sourcelink %}<li>via <a href="{{ post.sourcelink }}">{{ post.source }}</a></li>{% endif %}
 		</ul>
 	</header>
 
