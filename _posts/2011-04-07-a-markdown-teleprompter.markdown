@@ -6,6 +6,7 @@ category: minimalism
 link: http://brettterpstra.com/promptdown-markdown-teleprompter/
 source: Macstories
 sourcelink: http://www.macstories.net/links/a-markdown-teleprompter
+shortlink: http://jnbrk.se/aUQvpk
 ---
 
 

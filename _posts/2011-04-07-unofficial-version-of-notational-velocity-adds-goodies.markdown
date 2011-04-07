@@ -4,6 +4,7 @@ layout: post
 link: http://elasticthreads.tumblr.com/post/1283428380/notational-velocity-forked-fullscreen-mode-menubar
 category: tools
 date: 2010-10-10
+shortlink: http://jnbrk.se/b4GwEJ
 ---
 
 [Notational Velocity](http://notational.net/) is a simple yet powerful writing app for OS X. It’s focusing on speed and just bare-bone note taking – with no frills. I’ve fallen in love with the app, since it also supports syncing with [Simplenote](http://simplenoteapp.com/). It’s the perfect triquetra: I’ve got my notes in the cloud, on my iPhone and in my Mac. Notational Velocity also saves the notes as plain text files on the hard drive – another layer of backup.
