@@ -2,21 +2,15 @@
 	<section id="latestposts" class="node">
 		<h2>Latest posts</h2>
 		<ol class="list">
-			<li><a href="#">Whiteboard theme for Wordpress
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Firefox 4 – a bitter taste
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Flow out of beta
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Flow out of beta
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Flow out of beta
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Flow out of beta
-			<time class="listdetail">March 28th</time></a></li>
-			<li><a href="#">Flow out of beta
-			<time class="listdetail">March 28th</time></a></li>
-			
+			{% for post in site.posts %}
+
+			<li>
+				<a href="{{ post.url }}">{{ post.title }}
+					<time class="listdetail">{{ post.date | date: "%d %B"}}</time>
+				</a>
+			</li>
+
+			{% endfor %}
 		</ol>
 	</section>
 	

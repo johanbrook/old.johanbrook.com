@@ -1,7 +1,10 @@
 <article>
 	<header>
 		<h1>
-			<a href="{{ post.link || post.url }}">{{ post.title }}</a>
+			<a 
+				href="{% if post.link %} {{ post.link }} {% else %} {{ post.url }} {% endif %}"
+				{% if post.link %} title="{{ post.link }}" {% endif %}
+					>{{ post.title }} {% if post.link %}<em class="desc">Follow link</em>{% endif %}</a>
 		</h1>
 		<ul class="meta">
 			<li><time datetime="{{ post.date | date_to_xmlschema }}" pubdate>{{ post.date | date: "%a %d %B" }}</time></li>

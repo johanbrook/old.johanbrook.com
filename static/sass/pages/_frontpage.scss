@@ -10,7 +10,7 @@ section[role="main"]{
 		
 		article{
 			@include fluid(168, padding-left, 644);
-			border-bottom: 1px dotted $border;
+			border-bottom: 1px solid #eee;
 			
 			header{
 				margin: 0;

@@ -380,7 +380,8 @@ del {
 	------------------------------------------------------ */
 html {
   background: #fff;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  border-top: 3px solid #000; }
 
 body {
   /* 62.5% = 10px */
@@ -390,11 +391,17 @@ body {
   color: #323232;
   width: 90%;
   max-width: 1200px;
-  margin: 0 5%; }
+  margin: 0 5%;
+  margin-top: -3px; }
 
 #content {
   width: 65.714%;
-  float: left; }
+  float: left;
+  -webkit-transition: width 0.3s ease-out;
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  -ms-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out; }
 
 header {
   margin-bottom: 24px; }
@@ -467,11 +474,16 @@ header[role="banner"] {
       color: #f5f5f5;
       font-weight: bold;
       letter-spacing: 1px;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      background: black url(../images/header-bg.png) no-repeat left -140px; }
       header[role="banner"] h1 a:hover {
         text-decoration: none;
         color: #fff;
-        border: 0; }
+        border: 0;
+        background-position: left top;
+        background-color: #fff; }
+        header[role="banner"] h1 a:hover em {
+          color: #fff; }
     header[role="banner"] h1 em {
       font: normal italic 0.8em/1 "Droid Serif", Georgia, "Times New Roman", serif;
       color: #999;
@@ -516,7 +528,7 @@ section[role="main"] > header {
   width: 65.714%; }
 section[role="main"] #content article {
   padding-left: 26.087%;
-  border-bottom: 1px dotted #aaaaaa; }
+  border-bottom: 1px solid #eee; }
   section[role="main"] #content article header {
     margin: 0; }
     section[role="main"] #content article header h1 a {
@@ -534,6 +546,15 @@ section[role="main"] #content article {
 article {
   margin-bottom: 24px;
   overflow: hidden; }
+  article header h1 a .desc {
+    display: none; }
+  article header h1 a:hover .desc {
+    display: inline;
+    font-size: .6em;
+    font-style: normal;
+    font-weight: bold;
+    position: absolute;
+    right: 0; }
   article .meta {
     font-size: 0.85em;
     color: #777;

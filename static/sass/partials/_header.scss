@@ -20,11 +20,18 @@ header[role="banner"]{
 			font-weight: bold;
 			letter-spacing: 1px;
 			text-transform: uppercase;
-			
+			background: #000 url(../images/header-bg.png) no-repeat left -140px;
+
 			&:hover{
 				text-decoration: none;
 				color: #fff;
 				border: 0;
+				background-position: left top;
+				background-color: #fff;
+				
+				em{
+					color: #fff;
+				}
 			}
 		}
 		

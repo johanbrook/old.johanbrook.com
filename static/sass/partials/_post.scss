@@ -4,7 +4,19 @@ article{
 	
 	header{
 		h1 a{
-
+			
+			.desc{
+				display: none;
+			}
+			
+			&:hover .desc{
+				display: inline;
+				font-size: .6em;
+				font-style: normal;
+				font-weight: bold;
+				position: absolute;
+				right: 0;
+			}
 		}
 	}
 	

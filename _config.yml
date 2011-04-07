@@ -4,3 +4,5 @@ rdiscount:
   extensions: [smart]
 pygments: true
 permalink: /posts/:title
+post_types:
+    - work
