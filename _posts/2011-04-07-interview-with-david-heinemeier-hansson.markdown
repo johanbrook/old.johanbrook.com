@@ -1,6 +1,7 @@
 ---
 title: Interview with David Heinemeier Hansson
 layout: post
+category: Interviews
 date: 2010-10-10
 link: http://bigthink.com/ideas/21596
 ---

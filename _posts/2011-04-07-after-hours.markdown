@@ -1,6 +1,7 @@
 ---
 title: After Hours
 layout: post
+category: Habits
 date: 2011-01-13
 ---
 
