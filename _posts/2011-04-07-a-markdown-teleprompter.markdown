@@ -2,7 +2,7 @@
 title: A markdown teleprompter
 layout: post
 date: 2010-10-10
-category: Minimalism
+category: minimalism
 link: http://brettterpstra.com/promptdown-markdown-teleprompter/
 source: Macstories
 sourcelink: http://www.macstories.net/links/a-markdown-teleprompter

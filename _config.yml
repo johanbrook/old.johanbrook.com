@@ -1,8 +1,9 @@
+base_url: http://johanbrook.com
 auto: true
 markdown: rdiscount
 rdiscount:
   extensions: [smart]
 pygments: true
-permalink: /posts/:title
+permalink: /:categories/:title
 post_types:
     - work

@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<section id="latestposts" class="node">
-		<h2>Latest posts</h2>
+		<h2>Recent</h2>
 		<ol class="list">
 			{% for post in site.posts %}
 
@@ -9,6 +9,23 @@
 					<time class="listdetail">{{ post.date | date: "%d %B"}}</time>
 				</a>
 			</li>
+
+			{% endfor %}
+		</ol>
+	</section>
+	
+	<section id="categories" class="node">
+		<h2>Topics</h2>
+		<ol class="list">
+			{% for category in site.iterable.categories %}
+			
+			{% if category.posts.size > 1 %}
+			<li>
+				<a href="/categories/{{ category.name }}">{{ category.name }}
+					<span class="listdetail">{{ category.posts | size }} posts</span>
+				</a>
+			</li>
+			{% endif %}
 
 			{% endfor %}
 		</ol>
